@@ -12,6 +12,7 @@ app.use(express.static("public"));
 app.use(bodyParser.urlencoded({extended: true}));
 ////JSON Parse
 app.use(bodyParser.json());
+app.use(express.static(__dirname));
 ////Template Engine
 app.engine("handlebars", exphbs({defaultLayout: "main"}));
 app.set("view engine", "handlebars");
