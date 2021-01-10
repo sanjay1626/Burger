@@ -1,14 +1,16 @@
 $(function() {
+  //Preven to trigger
     $(".create-form").on("submit", function(event) {
+      //event load
       event.preventDefault();
-  
+      //creates new Burger
       var newBurger = {
         burger_name: $("#newburger")
           .val()
           .trim(),
         devoured: 0
       };
-  
+      //POST Request
       $.ajax("/api/burgers", {
         type: "POST",
         data: newBurger
@@ -17,10 +19,10 @@ $(function() {
         location.reload();
       });
     });
-  
+    //Eat Burger on click event
     $(".eatburger").on("click", function(event) {
       event.preventDefault();
-  
+      //devoure to True
       var id = $(this).data("id");
       var devouredState = {
         devoured: 1
