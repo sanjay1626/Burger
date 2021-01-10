@@ -15,7 +15,8 @@ function createQmarks(num) {
 //create helper translate string to sql readable
 function translateSql(obj) {
     var arr = [];
-    for (var key in obj[key]) {
+    for (var key in obj) {
+        var value = obj[key];
         if (Object.hasOwnProperty.call(obj, key)) {
             if (typeof value === "string" && value.indexOf(" ") >= 0) {
                 value = "'" + value + "'";
@@ -39,16 +40,16 @@ var orm = {
         });
     },
     insertOne: function (table, cols, vals, cb) {
-        //var dbQuery = "INSERT INTO" + table + "(" + cols.toString() + ")" + "VALUES (" + createQmarks(vals.length) + ")";
-        var queryString = "INSERT INTO " + table;
+        var queryString = "INSERT INTO " + table + "(" + cols.toString() + ")" + "VALUES (" + createQmarks(vals.length) + ")";
+     //  var queryString = "INSERT INTO " + table;
 
-    queryString += " (";
-    queryString += cols.toString();
-    queryString += ") ";
-    queryString += "VALUES (";
-    queryString += createQmarks(vals.length);
-    queryString += ") ";
-        console.log(queryString);
+     // queryString += " (";
+         // queryString += cols.toString();
+     // queryString += ") ";
+     // queryString += "VALUES (";
+     // queryString += createQmarks(vals.length);
+     // queryString += ") ";
+           console.log(queryString);
 
         connection.query(queryString, vals, function (err, result) {
             if (err) {
@@ -84,8 +85,8 @@ var orm = {
         var queryString = "DELETE FROM " + table;
         queryString += " WHERE ";
         queryString += condition;
-        console.log(dbQuery);
-        connection.query(dbQuery, function (err, res) {
+        console.log(queryString);
+        connection.query(queryString, function (err, res) {
             if (err) {
                 throw err;
             }
