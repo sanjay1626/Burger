@@ -39,7 +39,7 @@ MonkeyBrain Inc.
 
   * Node.js
 =======
-  * Express
+  * Express Handlebars
   * mySQL
   
 
