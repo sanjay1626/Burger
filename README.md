@@ -11,6 +11,7 @@ The Burger Yum App is an application using Node.js, Express & MySQL.
 This project has been deployed to GitHub Pages. To get this project up and running, you can follow the deployment link.
 
    * [GitHub Respository](https://github.com/sanjay1626/Burger.git) 
+   * [Heroku Git](https://git.heroku.com/burger-yum-app.git)
    * [Heroku Deploy](https://burger-yum-app.herokuapp.com/)
   
 
